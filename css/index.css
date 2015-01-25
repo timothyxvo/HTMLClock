@@ -1,0 +1,31 @@
+.cold {
+	background-color: #95A5A6;
+}
+
+.chilly {
+	background-color: #1ABC96;
+}
+
+.nice { 
+	background-color: #2980B9;
+}
+
+.warm {
+	background-color: #E67E22;
+}
+
+.hot {
+	background-color: #E74C3C;
+}
+
+div#forecastLabel {
+	text-align: center;
+	font-size: 200%;
+	padding: 25px;
+}
+
+img.display {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
