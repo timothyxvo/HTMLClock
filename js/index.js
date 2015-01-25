@@ -18,7 +18,6 @@ var getColor = function(max) {
 
 function getTemp() {
 	
-	var lat = po 
 	var weatherAPI = "https://api.forecast.io/forecast/265dce62012862debaa4506a86ed3eb6/37.8267,-122.423?callback=?"
 
 
