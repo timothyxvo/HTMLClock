@@ -1,24 +1,27 @@
 body {
-background-color: #cccccc;
-color: #000000;
+	color: #FFFFFF;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-style: normal;
 }
 
 h1 {
-font-family: "Arial";
-font-size: 65px;
-text-align: center;
-font-style: normal;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-size: 100px;
+	text-align: center;
+	font-style: normal;
 }
 
 h2 {
-font-family: "Arial";
-font-size: 45px;
-text-align: center;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-size: 50px;
+	text-align: center;
+	margin: 0px;
 }
 
 div.clk {
-font-family: "Arial";
-font-size: 100px;
-text-align: center;
-color: #000000;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-size: 100px;
+	text-align: center;
+	color: #000000;
 }
+
