@@ -1,3 +1,11 @@
+function showAlarmPopup()
+{
+	$( "#mask").removeClass("hide");
+	$( "#popup").removeClass("hide");
+
+
+}
+
 var getColor = function(max) {
 	if(max < 60) {
 		return "cold";
