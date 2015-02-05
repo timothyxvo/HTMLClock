@@ -1,9 +1,79 @@
-function showAlarmPopup()
-{
+function showAlarmPopup() {
 	$( "#mask").removeClass("hide");
 	$( "#popup").removeClass("hide");
+};
 
+function hideAlarmPopup() {
+	$( "#mask").addClass("hide");
+	$( "#popup").addClass("hide");
+};
 
+function insertAlarm(hours, minutes, ampm, alarmName, objectId) {
+	var div = $("<div>");
+	div.addClass("flexable");
+
+	var alarmName = $("<div>");
+	alarmName.addClass("name");
+
+	alarmName.html(alarmName);
+
+	var alarmTime = $("<div>");
+	alarmTime.addClass("time");
+	alarmTime.html(hours + ":" + minutes + " " + ampm);
+
+	var deleteBut = '<input id="' + objectId + '"type="button" class="delete" value="Delete" onclick="deleteAlarm(this)"/>';
+
+	div.attr("id", objectId);
+	div.append(deleteBut);
+	div.append(alarmName);
+	div.append(alarmTime);
+	$("#alarms").append(div);
+};
+
+function addAlarm() {
+	var hours = $("#hours option:selected").text();
+	var mins = $("#mins option:selected").text();
+	var ampm = $("#ampm option:selected").text();
+	var alarmName = $("#alarmName").val() + "--";
+
+	var AlarmObject = Parse.Object.extend("Alarm");
+	var alarmObject = new AlarmObject();
+		alarmObject.save({"hours": hours, "mins": mins, "ampm": ampm, "alarmName": alarmName}, {
+			success: function(object) {
+				insertAlarm(hours, mins, ampm, alarmName, object.id);
+				hideAlarmPopup();
+			}
+		});
+};
+
+function deleteAlarm(button)
+{
+	var id = $(button).attr("id");
+	var AlarmObject = Parse.Object.extend("Alarm");
+	var query = new Parse.Query(AlarmObject);
+	query.get(id, {
+		success: function(results) {
+			results.destroy({
+				success: function(myObject) {
+					$("#" + id).html("");
+				}
+			})
+		}
+	});
+};
+
+function getAllAlarms() {
+	Parse.initialize("ouDhoHg2GL9JoDkRrWm1g0N3wPTGt2jJc6IhBIyU", "3qJBhyLUJnQ294PuG4h6AAMPKiiNWCC5mKK4JFyZ");
+	var AlarmObject = Parse.Object.extend("Alarm");
+	var query = new Parse.Query(AlarmObject);
+	query.find({
+		success: function(results) {
+			for (var i = 0; i < results.length; i++) {
+				insertAlarm(results[i].attributes.hours, results[i].attributes.mins, results[i].attributes.ampm,
+					results[i].attributes.alarmName, results[i].id);
+			}
+		}
+	});
 }
 
 var getColor = function(max) {
@@ -47,3 +117,4 @@ function getTemp() {
 };
 
 getTemp();
+getAllAlarms();

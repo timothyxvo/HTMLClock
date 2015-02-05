@@ -11,6 +11,12 @@ h2 {
 	width:100px;
 	padding:10px 10px;
 }
+
+.delete {
+	margin-right: 20px;
+	width: 90px;
+}
+
 .flexable {
 	display: -webkit-box;
 	display: -moz-box;
@@ -78,4 +84,8 @@ h2 {
 	width:90%;
 	font-size:14px;
 	margin:10px auto 25px auto;
+}
+
+#timeContainer {
+	margin-top: 15px;
 }
