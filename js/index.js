@@ -12,10 +12,10 @@ function insertAlarm(hours, minutes, ampm, alarmName, objectId) {
 	var div = $("<div>");
 	div.addClass("flexable");
 
-	var alarmName = $("<div>");
-	alarmName.addClass("name");
+	var alarm = $("<div>");
+	alarm.addClass("name");
 
-	alarmName.html(alarmName);
+	alarm.html(alarmName);
 
 	var alarmTime = $("<div>");
 	alarmTime.addClass("time");
@@ -25,7 +25,7 @@ function insertAlarm(hours, minutes, ampm, alarmName, objectId) {
 
 	div.attr("id", objectId);
 	div.append(deleteBut);
-	div.append(alarmName);
+	div.append(alarm);
 	div.append(alarmTime);
 	$("#alarms").append(div);
 };
