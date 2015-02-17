@@ -7,18 +7,14 @@
         <link href="css/index.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-        <h1>Timothy's Clock</h1>
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
 
-<div id="status">
-</div>
+        <h1>Timothy's Clock</h1>
+        
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+        <div id="status">
+        </div>
+
         <div class="clk" id="time"></div>
         <div id="forecastLabel"></div><img class="display" id="forecastIcon" style="padding-bottom: 25px">
         <div id="alarmContainer">
