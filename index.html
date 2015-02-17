@@ -63,7 +63,7 @@
                 <input type="text" id="alarmName" placeholder="Alarm Name"/>
                 <div class="flexable">
                 	<input type="button" value="Cancel" class="button" onclick="hideAlarmPopup()"/>
-                	<input type="button" value="Save Alarm" class="button" onclick="addAlarm()"/>
+                	<input id="addAlarm" type="button" value="Save Alarm" class="button" onclick="addAlarm()"/>
                 </div>             
             </div>
         </div>
@@ -81,7 +81,8 @@
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
           // Logged into your app and Facebook.
-          getAllAlarms();
+          getAllAlarms(response.authResponse.userID);
+          $("#addAlarm").attr("onclick", response.authResponse.userID);
           testAPI();
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.

@@ -8,7 +8,7 @@ function hideAlarmPopup() {
 	$( "#popup").addClass("hide");
 };
 
-function insertAlarm(hours, minutes, ampm, alarmName, objectId) {
+function insertAlarm(hours, minutes, ampm, alarmName, objectID, userID) {
 	var div = $("<div>");
 	div.addClass("flexable");
 
@@ -21,9 +21,9 @@ function insertAlarm(hours, minutes, ampm, alarmName, objectId) {
 	alarmTime.addClass("time");
 	alarmTime.html(hours + ":" + minutes + " " + ampm);
 
-	var deleteBut = '<input id="' + objectId + '"type="button" class="delete" value="Delete" onclick="deleteAlarm(this)"/>';
+	var deleteBut = '<input id="' + objectID + '"type="button" class="delete" value="Delete" onclick="deleteAlarm(this)"/>';
 
-	div.attr("id", objectId);
+	div.attr("id", objectID);
 	div.append(deleteBut);
 	div.append(alarm);
 	div.append(alarmTime);
@@ -62,7 +62,7 @@ function deleteAlarm(button)
 	});
 };
 
-function getAllAlarms() {
+function getAllAlarms(userID) {
 	Parse.initialize("ouDhoHg2GL9JoDkRrWm1g0N3wPTGt2jJc6IhBIyU", "3qJBhyLUJnQ294PuG4h6AAMPKiiNWCC5mKK4JFyZ");
 	var AlarmObject = Parse.Object.extend("Alarm");
 	var query = new Parse.Query(AlarmObject);
