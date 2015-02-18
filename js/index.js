@@ -126,3 +126,4 @@ function getTemp() {
 
 
 getTemp();
+checkLoginState();
