@@ -31,6 +31,11 @@ function insertAlarm(hours, minutes, ampm, alarmName, objectID, userID) {
 };
 
 function addAlarm() {
+
+	FB.getLoginStatus(function(response) {
+        var userID = response.authResponse.userID;
+    });
+
 	var hours = $("#hours option:selected").text();
 	var mins = $("#mins option:selected").text();
 	var ampm = $("#ampm option:selected").text();
@@ -38,7 +43,7 @@ function addAlarm() {
 
 	var AlarmObject = Parse.Object.extend("Alarm");
 	var alarmObject = new AlarmObject();
-		alarmObject.save({"hours": hours, "mins": mins, "ampm": ampm, "alarmName": alarmName}, {
+		alarmObject.save({"userID": userID, "hours": hours, "mins": mins, "ampm": ampm, "alarmName": alarmName}, {
 			success: function(object) {
 				insertAlarm(hours, mins, ampm, alarmName, object.id);
 				hideAlarmPopup();
@@ -66,6 +71,7 @@ function getAllAlarms(userID) {
 	Parse.initialize("ouDhoHg2GL9JoDkRrWm1g0N3wPTGt2jJc6IhBIyU", "3qJBhyLUJnQ294PuG4h6AAMPKiiNWCC5mKK4JFyZ");
 	var AlarmObject = Parse.Object.extend("Alarm");
 	var query = new Parse.Query(AlarmObject);
+	query.equalTo("userID", userID);
 	query.find({
 		success: function(results) {
 			for (var i = 0; i < results.length; i++) {

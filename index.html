@@ -86,7 +86,6 @@
         if (response.status === 'connected') {
           // Logged into your app and Facebook.
           getAllAlarms(response.authResponse.userID);
-          console.log(response.authResponse.userID);
           testAPI();
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
