@@ -15,7 +15,7 @@
         <div id="alarmContainer">
             <div class="flexable" id="alarmHeader">
                 <h2>Alarms</h2>
-                <input class="button" onclick="showAlarmPopup()" type="button" value="Add Alarm"/>
+                <input id="alrm" class="button hide" onclick="showAlarmPopup()" type="button" value="Add Alarm"/>
             </div>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
@@ -62,7 +62,7 @@
                 <input type="text" id="alarmName" placeholder="Alarm Name"/>
                 <div class="flexable">
                 	<input type="button" value="Cancel" class="button" onclick="hideAlarmPopup()"/>
-                	<input class="hide" id="addAlarm" type="button" value="Save Alarm" class="button" onclick="addAlarm()"/>
+                	<input id="addAlarm" type="button" value="Save Alarm" class="button" onclick="addAlarm()"/>
                 </div>             
             </div>
         </div>
@@ -82,7 +82,7 @@
         if (response.status === 'connected') {
           // Logged into your app and Facebook.
           getAllAlarms(response.authResponse.userID);
-          $( "#addAlarm").removeClass("hide");
+          $( "#alrm").removeClass("hide");
           testAPI();
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
