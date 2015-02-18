@@ -125,6 +125,6 @@ function getTemp() {
 };
 
 getTemp();
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+FB.login(function(response){
+	statusChangeCallback(response);
 });
