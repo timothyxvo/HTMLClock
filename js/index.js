@@ -32,8 +32,10 @@ function insertAlarm(hours, minutes, ampm, alarmName, objectID, userID) {
 
 function addAlarm() {
 
+	var userID = "";
+
 	FB.getLoginStatus(function(response) {
-        var userID = response.authResponse.userID;
+        userID = response.authResponse.userID;
     });
 
 	var hours = $("#hours option:selected").text();
