@@ -128,7 +128,7 @@ function login() {
 	FB.login(function(response){
 		statusChangeCallback(response);
 	});
-});
+};
 
 
 getTemp();
