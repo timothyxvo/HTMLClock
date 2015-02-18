@@ -124,7 +124,12 @@ function getTemp() {
 		});
 };
 
-getTemp();
-FB.login(function(response){
-	statusChangeCallback(response);
+function login() {
+	FB.login(function(response){
+		statusChangeCallback(response);
+	});
 });
+
+
+getTemp();
+login();
