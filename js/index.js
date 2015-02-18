@@ -126,4 +126,4 @@ function getTemp() {
 
 
 getTemp();
-FB.getLoginStatus();
+FB.checkLoginState();
