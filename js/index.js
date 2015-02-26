@@ -49,6 +49,7 @@ function addAlarm() {
 			success: function(object) {
 				insertAlarm(hours, mins, ampm, alarmName, object.id);
 				hideAlarmPopup();
+				ga('send', 'event', 'Alarm', 'Add');
 			}
 		});
 };
@@ -63,6 +64,7 @@ function deleteAlarm(button)
 			results.destroy({
 				success: function(myObject) {
 					$("#" + id).html("");
+					ga('send', 'event', 'Alarm', 'Delete');
 				}
 			})
 		}
